@@ -1,0 +1,120 @@
+<html>
+<head>
+  <title>Test de Raphael</title>
+  <script src="js/raphael-min.js"></script>
+  <script src="js/patrick.js"></script>
+  <script>
+  
+  var visitors = { "values":[{"label": "12/01/22", "value": 8828}, 
+                             {"label": "12/01/23", "value": 8691}, 
+                             {"label": "12/01/24", "value": 9702}, 
+                             {"label": "12/01/25", "value": 8799}, 
+                             {"label": "12/01/26", "value": 7928}, 
+                             {"label": "12/01/27", "value": 7235}, 
+                             {"label": "12/01/28", "value": 7666}, 
+                             {"label": "12/01/29", "value": 8253}, 
+                             {"label": "12/01/30", "value": 8014}, 
+                             {"label": "12/01/31", "value": 8668}, 
+                             {"label": "12/02/01", "value": 7603}, 
+                             {"label": "12/02/02", "value": 6671}, 
+                             {"label": "12/02/03", "value": 7012}, 
+                             {"label": "12/02/04", "value": 6867}, 
+                             {"label": "12/02/05", "value": 7845}, 
+                             {"label": "12/02/06", "value": 7322}, 
+                             {"label": "12/02/07", "value": 7167}, 
+                             {"label": "12/02/08", "value": 8703}, 
+                             {"label": "12/02/09", "value": 7486}, 
+                             {"label": "12/02/10", "value": 7970}, 
+                             {"label": "12/02/11", "value": 8206}, 
+                             {"label": "12/02/12", "value": 8517}, 
+                             {"label": "12/02/13", "value": 8908}, 
+                             {"label": "12/02/14", "value": 9615}, 
+                             {"label": "12/02/15", "value": 8828}, 
+                             {"label": "12/02/16", "value": 8429},
+                             {"label": "12/02/17", "value": 8464}, 
+                             {"label": "12/02/18", "value": 7899}, 
+                             {"label": "12/02/19", "value": 8584}, 
+                             {"label": "12/02/20", "value": 8299}, 
+                             {"label": "12/02/21", "value": 9170}
+
+                            ]                         
+                             };
+
+  
+  var inscrits = { "values":[{"label": "12/01/22", "value": 700}, 
+                             {"label": "12/01/23", "value": 850}, 
+                             {"label": "12/01/24", "value": 500}, 
+                             {"label": "12/01/25", "value": 400}, 
+                             {"label": "12/01/26", "value": 320}, 
+                             {"label": "12/01/27", "value": 450}, 
+                             {"label": "12/01/28", "value": 560}, 
+                             {"label": "12/01/29", "value": 780}, 
+                             {"label": "12/01/30", "value": 800}, 
+                             {"label": "12/01/31", "value": 1200}, 
+                             {"label": "12/02/01", "value": 600}, 
+                             {"label": "12/02/02", "value": 300}, 
+                             {"label": "12/02/03", "value": 500}, 
+                             {"label": "12/02/04", "value": 450}, 
+                             {"label": "12/02/05", "value": 300}, 
+                             {"label": "12/02/06", "value": 600}, 
+                             {"label": "12/02/07", "value": 700}, 
+                             {"label": "12/02/08", "value": 500}, 
+                             {"label": "12/02/09", "value": 400}, 
+                             {"label": "12/02/10", "value": 300}, 
+                             {"label": "12/02/11", "value": 230}, 
+                             {"label": "12/02/12", "value": 700}, 
+                             {"label": "12/02/13", "value": 600}, 
+                             {"label": "12/02/14", "value": 450}, 
+                             {"label": "12/02/15", "value": 650}, 
+                             {"label": "12/02/16", "value": 450},
+                             {"label": "12/02/17", "value": 450}, 
+                             {"label": "12/02/18", "value": 600}, 
+                             {"label": "12/02/19", "value": 900}, 
+                             {"label": "12/02/20", "value": 1200}, 
+                             {"label": "12/02/21", "value": 900}
+
+                            ]                         
+                             };
+
+  </script>
+  
+  <style>
+    .title_graph { width: 600px; font-family: Arial; font-size: 16px; margin-top: 5px; text-align: right;   }
+  </style>
+  
+</head>
+<body>
+  <h1>TEST</h1>
+  <div id="graph_1"></div>
+  <div class="title_graph">TEST VISITEURS HISTO</div>
+
+  <hr />
+  <div id="graph_2"></div>
+  <div class="title_graph">TEST VISITEURS COURBE</div>  
+  <hr />
+  <div id="graph_3"></div>
+  <div class="title_graph">TEST VISITEURS COURBE (mini)</div>  
+ 
+  <script>
+  
+    paper_1 = create_graph("graph_1", visitors, {width: 600, height: 250, left_margin: 50, bottom_margin: 50});
+    draw_histo(paper_1, visitors, "90-#FFF-#76c4fb");
+    draw_histo(paper_1, inscrits, "90-#FFF-#ff46f8");
+  
+    paper_2 = create_graph("graph_2", visitors, {width: 600, height: 250, left_margin: 50, bottom_margin: 50});
+    curve_1 = draw_curve(paper_2, visitors, { color: "#76c4fb" });    
+    create_tracing(curve_1);
+    
+    curve_2 = draw_curve(paper_2, inscrits,  { color: "#ff46f8" });
+  //  create_tracing(curve_2);
+  
+    paper_3 = create_graph("graph_3", visitors, {width: 200, height: 75, left_margin: 0, bottom_margin: 0});
+    draw_curve(paper_3, visitors, { color: "#76c4fb", width: 2, dasharray:"-" });    
+    draw_curve(paper_3, inscrits, { width: 2, dasharray:"." } );
+
+  
+  </script>
+
+
+</body>
+</html>
