@@ -18,7 +18,7 @@ Exemple
                              {"label": "12/01/25", "value": 8799},
                              {"label": "12/01/26", "value": 7928},
                              {"label": "12/01/27", "value": 7235},
-                             {"label": "12/01/28", "value": 7666};
+                             {"label": "12/01/28", "value": 7666}]};
 
   var inscrits = { "values":[{"label": "12/01/22", "value": 700},
                              {"label": "12/01/23", "value": 850},
@@ -26,7 +26,7 @@ Exemple
                              {"label": "12/01/25", "value": 400},
                              {"label": "12/01/26", "value": 320},
                              {"label": "12/01/27", "value": 450},
-                             {"label": "12/01/28", "value": 560};
+                             {"label": "12/01/28", "value": 560}]};
 
 
     paper_1 = create_graph("graph_1", visitors, {width: 600, height: 250, left_margin: 50, bottom_margin: 50});
@@ -42,7 +42,7 @@ Exemple
 
 ```
 
-La fonction [draw_curse()] permet de dessiner un segment se promenant sur la courbe (et uniquement sur la courbe) dans le temps montrant les differentes valeurs
+La fonction **draw_curse()** permet de dessiner un segment se promenant sur la courbe (et uniquement sur la courbe) dans le temps montrant les differentes valeurs
 
 Bugs
 ----
